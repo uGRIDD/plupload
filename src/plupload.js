@@ -2170,6 +2170,14 @@ plupload.File = (function() {
 			 */
 			status: plupload.QUEUED,
 
+		    /**
+             * The file path in zip files
+             *
+             * @property fileNamesInZip
+             * @type Array
+             */
+			fileNamesInZip: file.fileNamesInZip || new Array(),
+
 			/**
 			 * Date of last modification.
 			 *
