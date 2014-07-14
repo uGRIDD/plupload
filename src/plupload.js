@@ -1032,7 +1032,8 @@ plupload.Uploader = function(options) {
 						multiple: settings.multi_selection,
 						container: settings.container,
 						browse_button: el,
-					    do_checking_unzip: settings.do_checking_unzip
+						do_checking_unzip: settings.do_checking_unzip,
+						directory: settings.directory_selection
 					}));
 
 					fileInput.onready = function() {
@@ -1635,7 +1636,8 @@ plupload.Uploader = function(options) {
 		},
 		send_file_name: true,
 		send_chunk_number: true,
-		do_checking_unzip: false
+		do_checking_unzip: false,
+	    directory_selection: true
 	};
 
 	
