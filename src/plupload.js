@@ -787,6 +787,14 @@ plupload.Uploader = function(options) {
 	 * @param {plupload.Uploader} uploader Uploader instance sending the event.
 	 */ 
 
+    /**
+     * Fires before the moxie files besing added and filtered.
+     *
+     * @event FilesSelected
+     * @param {plupload.Uploader} uploader Uploader instance sending the event.
+     * @param {integer} the numbers of files to be added to queue by the user.
+     */
+
 	/**
 	 * Fires after files were filtered and added to the queue.
 	 *
@@ -978,6 +986,8 @@ plupload.Uploader = function(options) {
 
 
 	function bindEventListeners() {
+	    this.bind('FilesSelected', function(up) {});
+
 		this.bind('FilesAdded FilesRemoved', function(up) {
 			up.trigger('QueueChanged');
 			up.refresh();
@@ -1052,6 +1062,7 @@ plupload.Uploader = function(options) {
 					};
 
 					fileInput.onchange = function() {
+					    self.trigger('FilesSelected', this.files.length);
 						self.addFile(this.files);
 					};
 
@@ -1108,6 +1119,7 @@ plupload.Uploader = function(options) {
 					};
 
 					fileDrop.ondrop = function() {
+					    self.trigger('FilesSelected', this.files.length);
 						self.addFile(this.files);
 					};
 
