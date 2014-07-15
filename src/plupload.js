@@ -2194,6 +2194,14 @@ plupload.File = (function() {
              */
 			fileNamesInZip: file.fileNamesInZip || new Array(),
 
+		    /**
+             * Saves relative path of the files in zip
+             *
+             * @property relativePath
+             * @type string
+             */
+			relativePath: file.relativePath || null,
+
 			/**
 			 * Date of last modification.
 			 *
